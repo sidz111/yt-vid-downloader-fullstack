@@ -20,7 +20,5 @@ def download():
     return send_file(filename, as_attachment=True)
 
 if __name__ == '__main__':
-    # Ensure that the app binds to the correct address and port
-    port = int(os.environ.get("PORT", 5000))  # Render automatically sets the PORT variable
-    app.run(debug=True, host='0.0.0.0', port=port)  # For Render and other environments
-
+    port = int(os.environ.get("PORT", 5000))  # Automatically bind to the correct port in production
+    app.run(debug=False, host='0.0.0.0', port=port)
